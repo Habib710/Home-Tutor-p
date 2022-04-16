@@ -1,9 +1,13 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 import CustomLink from '../Custom/CustomLink';
 import './Header.css'
 
 const Header = () => {
+  const [user] = useAuthState(auth);
+  
     return (
         <Navbar className='navbar-css' variant="dark" expand="lg">
   <Container>
@@ -16,7 +20,12 @@ const Header = () => {
         <CustomLink to="/checkout">Check out</CustomLink>
         <CustomLink to="/blog">Blog</CustomLink>
         <CustomLink to="/about">About me</CustomLink>
-        <CustomLink to="/login">Login</CustomLink>
+
+        {
+          user?<CustomLink to="/login">Login</CustomLink>:
+          <button>Log out</button>
+        }
+        
         
       </Nav>
     </Navbar.Collapse>

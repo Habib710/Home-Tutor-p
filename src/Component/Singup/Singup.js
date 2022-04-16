@@ -1,17 +1,29 @@
 import { faEnvelope,  faLock, faPenNib, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Singup.css';
+import auth from '../../firebase.init';
 
 
 const Singup = () => {
 
-    const [enail,setemail]=useState([]);
+    const [email,setemail]=useState([]);
     const [password,setpassword]=useState([]);
 
-    const [password1,setpassword1]=useState([]);
+    
     const [password2,setpassword2]=useState([]);
+    const [error,seterror]=useState([]);
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        
+      ] = useCreateUserWithEmailAndPassword(auth);
+
+      const naviget=useNavigate();
 
 
     const hendlemai=(event)=>{
@@ -21,7 +33,7 @@ const Singup = () => {
     }
     const hendlepassword1=event=>{
         const pass1=event.target.value;
-        setpassword1(pass1);
+        setpassword(pass1);
     }
     const hendlepassword2=event=>{
         const pass2=event.target.value;
@@ -30,18 +42,27 @@ const Singup = () => {
 
     const fromsubmit=event=>{
         event.preventDefault()
-        if(password1!==password2){
-            return "Tow password didn't match"
+        if(password!==password2){
+            return seterror("Tow password didn't match")
 
         }
-        else{
-            setpassword(password2);
+        if(password.length<6){
+            return seterror("Your password is less then 6 number") 
+
         }
+        
+        createUserWithEmailAndPassword(email, password);
 
 
     }
 
 
+    if(user){
+        naviget('/blog')
+    }
+    
+
+   
 
     return (
         <div className='maine-css mb-5'>
@@ -49,7 +70,7 @@ const Singup = () => {
             <div className='form-div new-css'>
                <h3 className='text-center pt-4'>Sing up</h3>
              
-         <form onSubmit={fromsubmit} className='form-css '>
+         <form  className='form-css '>
              <div className='d-flex  align-items-center p-3'>
              <label htmlFor="Name"><FontAwesomeIcon icon={faPenNib}/></label>
              <input  type="text" placeholder= ' Your Name' />
@@ -69,7 +90,15 @@ const Singup = () => {
              <label htmlFor="Password"><FontAwesomeIcon icon={faLock}/></label>
              <br />
              <input onBlur={hendlepassword2} type="password" placeholder='Confirm Password'/>
+             
+             
              </div>
+             {
+                 loading? <p>loading..........</p>:''
+             }
+             {
+                 error? <p style={{color:'red'}}>{error}</p> :''
+             }
 
              <div  >
              <p  className='text-left'>Have a Account ?  <Link to='/login'>Log in now</Link></p>
@@ -77,7 +106,7 @@ const Singup = () => {
             
              
              
-             <button className='btn-css  '><FontAwesomeIcon icon={faUserPlus}/> Sing up</button>
+             <button onClick={fromsubmit} className='btn-css  '><FontAwesomeIcon icon={faUserPlus}/> Sing up</button>
              <br />
              
              
