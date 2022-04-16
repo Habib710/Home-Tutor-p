@@ -40,7 +40,7 @@ const Login = () => {
 
 
     if(user){
-        naviget('/blog');
+        naviget('/checkout');
     }
     return (
         <div className='root-div'>
@@ -52,27 +52,29 @@ const Login = () => {
              <label htmlFor="Name"><FontAwesomeIcon icon={faEnvelope}/></label>
              
              
-             <input onBlur={hendlemai}  type="email" placeholder= ' Your Email' /></div>
+             <input onBlur={hendlemai}  type="email" placeholder= ' Your Email' required/></div>
             
              <div className='d-flex  align-items-center p-3'>
              <label htmlFor="Password"><FontAwesomeIcon icon={faLock}/></label>
              <br />
-             <input onBlur={hendlepassword1} type="password" placeholder='Your Password'/>
+             <input onBlur={hendlepassword1} type="password" placeholder='Your Password' required/>
              
              
              
              </div>
-             <div  >
-                 {
+               {
                      error? <p style={{color:'red'}}>{error.message}</p>:''
                  }
-             <p  className='text-left'>New to our website?  <Link to='/singup'>Sing up now</Link></p>
-             </div>
+             <br />
             
              
              
-             <button onClick={login} className='btn-css  '><FontAwesomeIcon icon={faKey}/> Login</button>
+             <button onClick={login} className='btn-css mb-2 '><FontAwesomeIcon icon={faKey}/> Login</button>
              <br />
+             <div  >
+                 
+             <p  className='text-left'>New to our website?  <Link to='/singup'>Sing up now</Link></p>
+             </div>
              
              
          </form>
@@ -84,9 +86,9 @@ const Login = () => {
          </div>
 
          <div >
-         <button className='btn-google'>Google singin</button>
-         <br /><br />
-         <button className='btn-google mb-4'>GitHub singin</button>
+         <button className='btn-google mb-5 mt-2'>Google singin</button>
+         <br />
+         
          
          </div>
         

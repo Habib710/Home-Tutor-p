@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Singup.css';
 import auth from '../../firebase.init';
+import { useSendEmailVerification } from 'react-firebase-hooks/auth';
 
 
 const Singup = () => {
@@ -21,9 +22,11 @@ const Singup = () => {
         user,
         loading,
         
-      ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth ,{sendEmailVerification:true});
 
-      const naviget=useNavigate();
+      
+
+    const naviget=useNavigate();
 
 
     const hendlemai=(event)=>{
@@ -31,10 +34,12 @@ const Singup = () => {
         setemail(inputemail);
 
     }
+
     const hendlepassword1=event=>{
         const pass1=event.target.value;
         setpassword(pass1);
     }
+
     const hendlepassword2=event=>{
         const pass2=event.target.value;
        setpassword2(pass2);
@@ -53,12 +58,11 @@ const Singup = () => {
         
         createUserWithEmailAndPassword(email, password);
 
-
     }
 
 
     if(user){
-        naviget('/blog')
+        naviget('/checkout')
     }
     
 
@@ -68,7 +72,8 @@ const Singup = () => {
         <div className='maine-css mb-5'>
 
             <div className='form-div new-css'>
-               <h3 className='text-center pt-4'>Sing up</h3>
+               
+               <h3 className='text-center pt-4'><FontAwesomeIcon icon={faUserPlus}/> Sing up</h3>
              
          <form  className='form-css '>
              <div className='d-flex  align-items-center p-3'>
@@ -77,19 +82,19 @@ const Singup = () => {
              </div>
              <div className='d-flex  align-items-center p-3'>
              <label htmlFor="email"><FontAwesomeIcon icon={faEnvelope}/></label>
-             <input onBlur={hendlemai} type="email" placeholder= ' Your Email' />
+             <input onBlur={hendlemai} type="email" placeholder= ' Your Email'  required/>
              </div>
 
             
              <div className='d-flex  align-items-center p-3'>
              <label htmlFor="Password"><FontAwesomeIcon icon={faLock}/></label>
              <br />
-             <input onBlur={hendlepassword1} type="password" placeholder='Set Password'/>
+             <input onBlur={hendlepassword1} type="password" placeholder='Set Password' required/>
              </div>
              <div className='d-flex  align-items-center p-3'>
              <label htmlFor="Password"><FontAwesomeIcon icon={faLock}/></label>
              <br />
-             <input onBlur={hendlepassword2} type="password" placeholder='Confirm Password'/>
+             <input onBlur={hendlepassword2} type="password" placeholder='Confirm Password' required/>
              
              
              </div>
@@ -100,18 +105,17 @@ const Singup = () => {
                  error? <p style={{color:'red'}}>{error}</p> :''
              }
 
-             <div  >
-             <p  className='text-left'>Have a Account ?  <Link to='/login'>Log in now</Link></p>
-             </div>
+             
             
              
              
              <button onClick={fromsubmit} className='btn-css  '><FontAwesomeIcon icon={faUserPlus}/> Sing up</button>
-             <br />
-             
-             
+             <br /><br />
+             <div  >
+             <p  className='text-left'>Have a Account ?  <Link to='/login'>Log in now</Link></p>
+             </div>   
          </form>
-         <div className='d-flex align-items-center  justify-content-center '>
+          <div className='d-flex align-items-center  justify-content-center '>
              <div className='custom-or'></div>
 
              <p className='px-2 mt-2'>or</p>
@@ -119,13 +123,10 @@ const Singup = () => {
          </div>
 
          <div className=''>
-         <button className='btn-google mb-4'>Google singin</button>
-        
-         
-         </div>
-        
-         </div>
-         
+            <button className='btn-google mb-4'>Google singin</button>  
+         </div> 
+
+         </div>       
             
         </div>
     );
