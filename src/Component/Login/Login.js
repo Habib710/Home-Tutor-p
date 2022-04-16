@@ -1,9 +1,9 @@
 import React from 'react';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faUser,faLock,faKey,faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import {faLock,faKey,faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
-import { Form } from 'react-bootstrap';
+
 
 const Login = () => {
     return (
@@ -37,14 +37,14 @@ const Login = () => {
              
              
          </form>
-         <div className='d-flex align-items-center ps-4'>
+         <div className='d-flex align-items-center justify-content-center '>
              <div className='custom-or'></div>
 
              <p className='px-2 mt-2'>or</p>
              <div className='custom-or'></div>
          </div>
 
-         <div>
+         <div >
          <button className='btn-google'>Google singin</button>
          <br /><br />
          <button className='btn-google mb-4'>GitHub singin</button>

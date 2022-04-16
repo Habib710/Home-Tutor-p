@@ -1,4 +1,7 @@
-
+.root-div{
+    margin: 0;
+    padding: 0;
+}
 
 
 .form-div{
@@ -31,7 +34,7 @@
     padding: 10px;
 }
 .btn-css{
-    background-color: rgb(169, 84, 253);
+    background-color: rgb(245, 47, 126);
     border-radius: 8px;
     border: none;
     color: aliceblue;
@@ -40,6 +43,11 @@
     padding: 7px 120px;
  
     
+}
+.btn-css:hover{
+    background-color: rgb(214, 1, 87);
+    transition: .4s;
+
 }
 .btn-google{
 
