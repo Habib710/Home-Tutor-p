@@ -1,0 +1,10 @@
+.navbar-css{
+    background-color: black;
+    min-height: 80px;
+}
+.nav-css a{
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 25px;
+
+}

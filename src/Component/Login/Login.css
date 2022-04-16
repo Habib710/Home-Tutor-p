@@ -1,0 +1,68 @@
+
+
+
+.form-div{
+    text-align: center;
+    width: 350px;
+    background-color: rgb(255, 255, 255);
+    display: block;
+    margin: auto;
+   margin-top: 80px;
+   border-radius: 8px;
+ 
+   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+   
+
+}
+
+.form-css {
+    text-align: center;
+   padding: 10px;
+
+    
+}
+.form-css input{
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+ 
+    padding: 10px;
+}
+.btn-css{
+    background-color: rgb(169, 84, 253);
+    border-radius: 8px;
+    border: none;
+    color: aliceblue;
+    font-weight: 500;
+   
+    padding: 7px 120px;
+ 
+    
+}
+.btn-google{
+
+    padding: 7px 100px;
+    border-radius: 8px;
+    background-color: rgb(250, 250, 250);
+    border: none;
+    box-shadow: rgba(3, 3, 3, 0.24) 0px 3px 8px;
+}
+.custom-or{
+    width: 40%;
+    height: 2px ;
+    background-color: rgb(165, 165, 165);
+}
+
+
+
+
+
+
+@media screen and (max-width:390) {
+    .form-div{
+        width: 250px;
+    }
+    
+}
