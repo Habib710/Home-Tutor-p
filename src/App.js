@@ -9,6 +9,8 @@ import Checkout from './Component/CheckOut/Checkout';
 import Blog from './Component/Blog/Blog';
 import About from './Component/About/About';
 import Singup from './Component/Singup/Singup';
+import Requeir from './Component/Requeirauth/Requeir';
+import Footer from './Component/Footer/Footer';
 
 
 function App() {
@@ -19,7 +21,11 @@ function App() {
 
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/checkout' element={<Checkout></Checkout>}></Route>
+        <Route path='/checkout' element={
+          <Requeir>
+        <Checkout></Checkout>
+        </Requeir>
+        }></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
        <Route path='/about' element={<About></About>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
@@ -28,7 +34,7 @@ function App() {
 
 
       </Routes>
-      
+      <Footer></Footer>
 
     </div>
   );

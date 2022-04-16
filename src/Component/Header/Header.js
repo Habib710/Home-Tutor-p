@@ -4,6 +4,7 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import CustomLink from '../Custom/CustomLink';
+import Requeir from '../Requeirauth/Requeir';
 import './Header.css'
 
 const Header = () => {
@@ -22,7 +23,7 @@ const Header = () => {
       <Nav className="ms-auto nav-css">
 
         <CustomLink to="/home">Home</CustomLink>
-        <CustomLink to="/checkout">Check out</CustomLink>
+        <CustomLink to="/checkout">Check out</CustomLink>       
         <CustomLink to="/blog">Blog</CustomLink>
         <CustomLink to="/about">About</CustomLink>
 
@@ -32,7 +33,7 @@ const Header = () => {
            <CustomLink to="/login">Login</CustomLink>
         }
         {
-          user? '':<CustomLink to="/singup">Sing up</CustomLink>
+          user? '': <CustomLink to="/singup">Sing up</CustomLink>
         }
         
         

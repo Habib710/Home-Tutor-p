@@ -2,10 +2,11 @@ import { faEnvelope,  faLock, faPenNib, faUserPlus } from '@fortawesome/free-sol
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import './Singup.css';
 import auth from '../../firebase.init';
-import { useSendEmailVerification } from 'react-firebase-hooks/auth';
+
+import img from '../img/google.png';
 
 
 const Singup = () => {
@@ -24,7 +25,7 @@ const Singup = () => {
         
     ] = useCreateUserWithEmailAndPassword(auth ,{sendEmailVerification:true});
 
-      
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
 
     const naviget=useNavigate();
 
@@ -57,6 +58,10 @@ const Singup = () => {
         }
         
         createUserWithEmailAndPassword(email, password);
+
+    }
+    const googlesingin=()=>{
+        signInWithGoogle()
 
     }
 
@@ -94,8 +99,7 @@ const Singup = () => {
              <div className='d-flex  align-items-center p-3'>
              <label htmlFor="Password"><FontAwesomeIcon icon={faLock}/></label>
              <br />
-             <input onBlur={hendlepassword2} type="password" placeholder='Confirm Password' required/>
-             
+             <input onBlur={hendlepassword2} type="password" placeholder='Confirm Password' required/> 
              
              </div>
              {
@@ -103,16 +107,12 @@ const Singup = () => {
              }
              {
                  error? <p style={{color:'red'}}>{error}</p> :''
-             }
-
-             
-            
-             
+             } 
              
              <button onClick={fromsubmit} className='btn-css  '><FontAwesomeIcon icon={faUserPlus}/> Sing up</button>
              <br /><br />
              <div  >
-             <p  className='text-left'>Have a Account ?  <Link to='/login'>Log in now</Link></p>
+             <p  className='text-left'>Have a Account ?  <Link className='text' to='/login'>Log in Now</Link></p>
              </div>   
          </form>
           <div className='d-flex align-items-center  justify-content-center '>
@@ -123,7 +123,7 @@ const Singup = () => {
          </div>
 
          <div className=''>
-            <button className='btn-google mb-4'>Google singin</button>  
+         <button onClick={googlesingin} className='btn-google mb-5 mt-2'> <img className='mb-1' width='20px' src={img} alt="" />  Google sing in</button> 
          </div> 
 
          </div>       

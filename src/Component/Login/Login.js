@@ -3,8 +3,9 @@ import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faLock,faKey,faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import { Link, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import img from '../img/google.png';
 
 
 const Login = () => {
@@ -16,6 +17,8 @@ const Login = () => {
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
+
+      const [signInWithGoogle] = useSignInWithGoogle(auth);
 
 
 
@@ -36,6 +39,10 @@ const Login = () => {
         event.preventDefault()
 
         signInWithEmailAndPassword(email, password)
+    }
+    const googlesingin=()=>{
+        signInWithGoogle()
+
     }
 
 
@@ -73,7 +80,7 @@ const Login = () => {
              <br />
              <div  >
                  
-             <p  className='text-left'>New to our website?  <Link to='/singup'>Sing up now</Link></p>
+             <p  className='text-left'>New to our website?  <Link className='text' to='/singup'>Sing up now</Link></p>
              </div>
              
              
@@ -86,7 +93,7 @@ const Login = () => {
          </div>
 
          <div >
-         <button className='btn-google mb-5 mt-2'>Google singin</button>
+         <button onClick={googlesingin} className='btn-google mb-5 mt-2'> <img className='mb-1' width='20px' src={img} alt="" />  Google sing in</button>
          <br />
          
          
