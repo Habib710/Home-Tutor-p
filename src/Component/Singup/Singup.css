@@ -1,4 +1,17 @@
 .new-css{
-    width: 40%;
+    width:650px;
    
+}
+
+
+
+
+@media screen and (max-width:320) {
+    
+    .new-css{
+        width:250px;
+       
+    }
+    
+    
 }
