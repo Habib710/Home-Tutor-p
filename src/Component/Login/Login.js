@@ -6,6 +6,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import img from '../img/google.png';
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../Loading/Loading';
 
 
 const Login = () => {
@@ -19,6 +24,10 @@ const Login = () => {
       ] = useSignInWithEmailAndPassword(auth);
 
       const [signInWithGoogle] = useSignInWithGoogle(auth);
+      const [sendPasswordResetEmail] = useSendPasswordResetEmail(
+        auth
+      );
+      const [error1,seterror1]=useState([])
 
 
 
@@ -27,6 +36,12 @@ const Login = () => {
 
     const hendlemai=(event)=>{
         const inputemail=event.target.value;
+        if(inputemail.length<1){
+            return seterror1("plz input your Email")
+        }
+        if(inputemail.length>1){
+            seterror1('')
+        }
         setemail(inputemail);
 
     }
@@ -44,10 +59,12 @@ const Login = () => {
         signInWithGoogle()
 
     }
-
-
+    
     if(user){
         naviget('/checkout');
+    }
+    if(loading){
+        return <Loading></Loading>
     }
     return (
         <div className='root-div'>
@@ -59,18 +76,21 @@ const Login = () => {
              <label htmlFor="Name"><FontAwesomeIcon icon={faEnvelope}/></label>
              
              
-             <input onBlur={hendlemai}  type="email" placeholder= ' Your Email' required/></div>
+             <input onBlur={hendlemai}  type="email" placeholder= ' Your Email*' required/></div>
             
              <div className='d-flex  align-items-center p-3'>
              <label htmlFor="Password"><FontAwesomeIcon icon={faLock}/></label>
              <br />
-             <input onBlur={hendlepassword1} type="password" placeholder='Your Password' required/>
+             <input onBlur={hendlepassword1} type="password" placeholder='Your Password*' required/>
              
              
              
              </div>
+             {
+                 error1? <p style={{color:'red',fontSize:'16px',fontWeight:'bold'}}>{error1}</p>:''
+             }
                {
-                     error? <p style={{color:'red'}}>{error.message}</p>:''
+                     error?  <p style={{color:'red',fontSize:'16px',fontWeight:'bold'}}>{error.message}</p>:''
                  }
              <br />
             
@@ -81,6 +101,18 @@ const Login = () => {
              <div  >
                  
              <p  className='text-left'>New to our website?  <Link className='text' to='/singup'>Sing up now</Link></p>
+             </div>
+
+
+             <div className='d-flex align-items-center justify-content-center'>
+                 <p>Forget password? </p>
+                 <button className='forget-btn' onClick={async () => {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+            }}>Reset password</button>
+             <ToastContainer />
+
+
              </div>
              
              

@@ -1,6 +1,7 @@
 .root-div{
     margin: 0;
     padding: 0;
+    
 }
 
 
@@ -64,6 +65,12 @@
 }
 .text{
     text-decoration: none;
+}
+.forget-btn{
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: rgb(28, 144, 253);
+    margin-bottom: 15px;
 }
 
 

@@ -6,7 +6,9 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-fi
 import './Singup.css';
 import auth from '../../firebase.init';
 
+
 import img from '../img/google.png';
+import Loading from '../Loading/Loading';
 
 
 const Singup = () => {
@@ -28,16 +30,30 @@ const Singup = () => {
     const [signInWithGoogle] = useSignInWithGoogle(auth);
 
     const naviget=useNavigate();
+    
 
 
     const hendlemai=(event)=>{
         const inputemail=event.target.value;
+        if(inputemail.length<1){
+          return  seterror("Email requried")
+        }
+        if(inputemail.length>1){
+            return seterror('')
+        }
         setemail(inputemail);
+        
 
     }
 
     const hendlepassword1=event=>{
         const pass1=event.target.value;
+        if(pass1.length<1){
+            return  seterror("password requried")
+          }
+          if(pass1.length>1){
+              return seterror('')
+          }
         setpassword(pass1);
     }
 
@@ -60,6 +76,8 @@ const Singup = () => {
         createUserWithEmailAndPassword(email, password);
 
     }
+
+
     const googlesingin=()=>{
         signInWithGoogle()
 
@@ -69,6 +87,10 @@ const Singup = () => {
     if(user){
         naviget('/checkout')
     }
+    if(loading){
+        return  <Loading></Loading>
+    }
+      
     
 
    
@@ -87,26 +109,24 @@ const Singup = () => {
              </div>
              <div className='d-flex  align-items-center p-3'>
              <label htmlFor="email"><FontAwesomeIcon icon={faEnvelope}/></label>
-             <input onBlur={hendlemai} type="email" placeholder= ' Your Email'  required/>
+             <input onBlur={hendlemai} type="email" placeholder= ' Your Email*'  />
              </div>
 
             
              <div className='d-flex  align-items-center p-3'>
              <label htmlFor="Password"><FontAwesomeIcon icon={faLock}/></label>
              <br />
-             <input onBlur={hendlepassword1} type="password" placeholder='Set Password' required/>
+             <input onBlur={hendlepassword1} type="password" placeholder='Set Password*' />
              </div>
              <div className='d-flex  align-items-center p-3'>
              <label htmlFor="Password"><FontAwesomeIcon icon={faLock}/></label>
              <br />
-             <input onBlur={hendlepassword2} type="password" placeholder='Confirm Password' required/> 
+             <input onBlur={hendlepassword2} type="password" placeholder='Confirm Password*' /> 
              
              </div>
+             
              {
-                 loading? <p>loading..........</p>:''
-             }
-             {
-                 error? <p style={{color:'red'}}>{error}</p> :''
+                 error? <p style={{color:'red',fontSize:'20px',fontWeight:'bold'}}>{error}</p> :''
              } 
              
              <button onClick={fromsubmit} className='btn-css  '><FontAwesomeIcon icon={faUserPlus}/> Sing up</button>
