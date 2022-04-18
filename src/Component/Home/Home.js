@@ -26,7 +26,7 @@ const Home = () => {
                         Welcome to Home Tutor
                     </h1>
                     <h4>Find your Best service,and Explore your learning.</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, sed similique accusantium.</p>
+                    <p>Are you looking for private house teacher,Tutor for primary, secondary, or university level students is available here</p>
                 </div>
                 </div>
 

@@ -33,37 +33,28 @@ const Singup = () => {
     
 
 
-    const hendlemai=(event)=>{
+    const hendlemai=event=>{
         const inputemail=event.target.value;
-        if(inputemail.length<1){
-          return  seterror("Email requried")
-        }
-        if(inputemail.length>1){
-            return seterror('')
-        }
-        setemail(inputemail);
-        
-
+        inputemail.length <1 ? seterror("Email requried"):seterror('')
+          
+       setemail(inputemail);
     }
 
     const hendlepassword1=event=>{
         const pass1=event.target.value;
-        if(pass1.length<1){
-            return  seterror("password requried")
-          }
-          if(pass1.length>1){
-              return seterror('')
-          }
-        setpassword(pass1);
-    }
+    
+          setpassword(pass1)
+    };
 
     const hendlepassword2=event=>{
         const pass2=event.target.value;
-       setpassword2(pass2);
-    }
+      setpassword2(pass2);
+       
+    };
 
     const fromsubmit=event=>{
-        event.preventDefault()
+        event.preventDefault(); 
+      
         if(password!==password2){
             return seterror("Tow password didn't match")
 
