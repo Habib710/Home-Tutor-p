@@ -1,25 +1,27 @@
 # Welcome to The Home Tutor
 
-## Live Link of Website [Create React App](https://github.com/facebook/create-react-app).
+## Live Link of Website [home tutor](https://github.com/facebook/create-react-app).
 
 
 
 # About Home Tutor
 
-In the project directory, you can run:
+* It is a simple home tutor website
+* There are a baner div to of the website after navbar
+* then a service div with 6 cart info
+* then a simple footer in the bottom
+* it's a multipul page website 
+* there have a login page also a sinup page
+* A check out page with protected route
+* also have a blog page
+* There are also a About page with a image and some details
 
-### `npm start`
+## Use Library/framework in this website
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* React-Bootstrap
+* React-Router
+* react font awesome
+* react hooks
 
 ### `npm run build`
 
