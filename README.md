@@ -1,8 +1,10 @@
-# Getting Started with Create React App
+# Welcome to The Home Tutor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live Link of Website [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+
+
+# About Home Tutor
 
 In the project directory, you can run:
 

@@ -85,7 +85,7 @@ const Singup = () => {
 
 
     if(user){
-        naviget('/checkout')
+        naviget('/home')
     }
     if(loading){
         return  <Loading></Loading>
@@ -96,7 +96,7 @@ const Singup = () => {
    
 
     return (
-        <div className='maine-css mb-5'>
+        <div className='maine-css container mb-5'>
 
             <div className='form-div new-css'>
                

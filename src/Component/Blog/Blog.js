@@ -48,7 +48,7 @@ const Blog = () => {
             </div>
             {/*.............. 2.............. */}
             <div className='container'>
-            <div className='table-css text-center mt-4  '>
+            <div className='table-css text-center my-5  '>
                 <h3 className=''>2. Why am I using firebase?</h3>
                 <div className='text-center my-5 container'>
                     <p>The Firebase Realtime Database lets you build rich, collaborative applications by allowing secure access to the database directly from client-side code. Data is persisted locally, and even while offline, realtime events continue to fire, giving the end user a responsive experience</p>
@@ -72,7 +72,7 @@ const Blog = () => {
             </div>
             
             <div className='container'>
-            <div className='table-css text-center mt-4  '>
+            <div className='table-css text-center my-5  '>
                 <h3 className=''>3.What other services does firebase provide other than authentication</h3>
                 <div className='text-center my-5 container'>
                     <p>Google Firebase is a Google-backed application development software that enables developers to develop iOS, Android and Web apps.</p>

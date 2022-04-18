@@ -14,7 +14,7 @@
    margin-top: 50px;
    border-radius: 8px;
  
-   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+   box-shadow: rgba(7, 7, 10, 0.1) 0px 4px 16px, rgba(8, 8, 14, 0.1) 0px 8px 24px, rgba(17, 17, 24, 0.1) 0px 16px 56px;
    
 
 }
@@ -40,6 +40,7 @@
     border: none;
     color: aliceblue;
     font-weight: 500;
+    text-decoration: none;
    
     padding: 7px 120px;
  
@@ -47,7 +48,14 @@
 }
 .btn-css:hover{
     background-color: rgb(214, 1, 87);
-    transition: .4s;
+   
+    
+        
+        transition: .4s ease-in-out;
+        transform: scale(1.03);
+        
+    
+    
 
 }
 .btn-google{

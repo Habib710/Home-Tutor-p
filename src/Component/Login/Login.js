@@ -61,7 +61,7 @@ const Login = () => {
     }
     
     if(user){
-        naviget('/checkout');
+        naviget('/home');
     }
     if(loading){
         return <Loading></Loading>
