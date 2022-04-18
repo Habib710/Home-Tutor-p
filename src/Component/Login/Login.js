@@ -60,11 +60,13 @@ const Login = () => {
 
     }
     
-    if(user){
-        naviget('/home');
-    }
+   
     if(loading){
         return <Loading></Loading>
+    }
+
+    if(user){
+        naviget('/home');
     }
     return (
         <div className='root-div'>

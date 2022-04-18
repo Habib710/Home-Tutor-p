@@ -75,13 +75,14 @@ const Singup = () => {
     }
 
 
-    if(user){
-        naviget('/home')
-    }
+   
     if(loading){
         return  <Loading></Loading>
     }
-      
+    
+    if(user){
+        naviget('/home')
+    }
     
 
    
