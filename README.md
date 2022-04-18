@@ -16,12 +16,14 @@
 * also have a blog page
 * There are also a About page with a image and some details
 
-## Use Library/framework in this website
+## Used Library/framework in this website
 
 * React-Bootstrap
 * React-Router
 * react font awesome
 * react hooks
+* react toastify
+* firebase
 
 ### `npm run build`
 
