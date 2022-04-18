@@ -20,7 +20,7 @@ const Checkout = () => {
     return (
         <div className='checkout-css '>
            <div className='w-100 text-center'>
-               <h1>Seleted service</h1>
+               <h1>Seleted Class/Program</h1>
 
 
            </div>
